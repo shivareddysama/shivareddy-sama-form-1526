@@ -1,0 +1,170 @@
+/* =====================
+   BASE / RESET
+   ===================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-bg: #f0eeea;
+  --clr-surface: #faf9f7;
+  --clr-border: #d8d4cc;
+  --clr-accent: #5b8dee;
+  --clr-accent-hover: #3a6fd4;
+  --clr-text: #2c2c2c;
+  --clr-label: #555;
+  --clr-input-bg: #ffffff;
+  --clr-input-focus: #e8f0fe;
+  --radius: 6px;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1rem;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* =====================
+   MAIN / LAYOUT
+   ===================== */
+main {
+  width: 100%;
+  max-width: 50rem;
+}
+
+/* =====================
+   FIELDSET / LEGEND
+   ===================== */
+fieldset {
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+legend {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* =====================
+   FORM GRID
+   ===================== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+/* =====================
+   FIELD
+   ===================== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-size: 1rem;
+  color: var(--clr-label);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  background-color: var(--clr-input-bg);
+  color: var(--clr-text);
+  transition: background-color 0.2s, border-color 0.2s;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--clr-accent);
+  background-color: var(--clr-input-focus);
+}
+
+/* =====================
+   SUBMIT BUTTON
+   ===================== */
+input[type="button"]#submit-button {
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--clr-accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+input[type="button"]#submit-button:hover {
+  background-color: var(--clr-accent-hover);
+}
+
+/* =====================
+   RESPONSIVE — SMARTPHONE
+   up to 25rem
+   ===================== */
+@media (max-width: 25rem) {
+  fieldset {
+    padding: 1rem;
+  }
+
+  input[type="button"]#submit-button {
+    width: 100%;
+  }
+}
+
+/* =====================
+   RESPONSIVE — TABLET
+   25rem to 40rem
+   ===================== */
+@media (min-width: 25rem) and (max-width: 40rem) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field--fullname { grid-column: 1; }
+  .field--email    { grid-column: 2; }
+  .field--message  { grid-column: 1 / -1; }
+  .field--submit   { grid-column: 1 / -1; }
+}
+
+/* =====================
+   RESPONSIVE — DESKTOP
+   40rem and above
+   ===================== */
+@media (min-width: 40rem) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field--fullname { grid-column: 1; }
+  .field--email    { grid-column: 2; }
+  .field--message  { grid-column: 1 / -1; }
+  .field--submit   { grid-column: 1 / -1; }
+}
